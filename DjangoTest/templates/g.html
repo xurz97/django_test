@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>get</title>
+    </head>
+    <body>
+        <form method="post" action="">
+            {% csrf_token  %}   <!-- 防止跨站攻击 -->
+            <input type="text" name="g"> <!-- 后端通过name拿到数据 -->
+            <button type="submit">提交</button>
+        </form>
+        <br/>
+        <p>{{ g }}</p>
+    </body>
+</html>
