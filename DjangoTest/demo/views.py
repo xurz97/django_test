@@ -14,11 +14,11 @@ def g(request):
 
 def home(request):
     if request.session.get('id') == None:
-        return render(request, 'Login.html')
+        return render(request, 'login.html')
     login_name = ''
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
-    return render(request, 'Home.html', {"name": login_name})
+    return render(request, 'home.html', {"name": login_name})
 
 
 
