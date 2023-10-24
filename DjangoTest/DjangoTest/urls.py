@@ -29,5 +29,6 @@ urlpatterns = [
     path('download/', views.download),
     #path('file/', views.file),
     path('file/', views.file, name='file'),
-    path('test/', views.test),
+    path('test/', views.test,name='test'),
+    path('history/', views.history,name='history'),
 ]

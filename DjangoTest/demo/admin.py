@@ -5,3 +5,4 @@ from . import models
 
 admin.site.register(models.User)
 admin.site.register(models.TestModel)
+admin.site.register(models.MyModel)

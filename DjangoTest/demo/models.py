@@ -19,4 +19,8 @@ class TestModel(models.Model):
     )
     select_value = models.CharField(max_length=10, choices=SELVALUE)
 
-
+class MyModel(models.Model):
+    string1 = models.CharField(max_length=10)
+    string2 = models.CharField(max_length=10)
+    number1 = models.IntegerField()
+    number2 = models.IntegerField()

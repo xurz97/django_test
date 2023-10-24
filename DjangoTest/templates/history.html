@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.w3schools.com/howto/tryhow_website_band.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/css/w3.css">
+<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+</head><body>
+  
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <div class="w3-button w3-bar-item">{{ name }}，你好！</div>
+  <div class="w3-button w3-bar-item"><a href = "../logout">登出</a></div>
+  <a href="../test" class="w3-button w3-bar-item">差分分析</a>
+  <a href="../file" class="w3-button w3-bar-item">测试2</a>
+  <a href="../history" class="w3-button w3-bar-item">查询记录</a>
+ 
+</nav>
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+    历史记录
+    <table>
+      <thead>
+        <tr>
+          <th>String 1</th>
+          <th>String 2</th>
+          <th>Number 1</th>
+          <th>Number 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for instance in my_model %}
+          <tr>
+            <td>{{ instance.string1 }}</td>
+            <td>{{ instance.string2 }}</td>
+            <td>{{ instance.number1 }}</td>
+            <td>{{ instance.number2 }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</section>
+
+
+</section>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  
+  <p class="w3-medium">
+  测试平台
+  </p>
+</footer>
+
+</body></html>

@@ -162,22 +162,38 @@ def file(request):
     return render(request, 'file.html')
 
 from .forms import SelectTestForm
+from .models import MyModel
+
 def test(request):
+    if request.session.get('id') == None:
+        return render(request, 'login.html')
+    login_name = ''
+    user = models.User.objects.get(id=request.session.get('id'))
+    login_name = user.username
+    
     if request.method == 'POST':
-        data = request.POST.get('code')
-        print(data)
-        with open('./static/InputFile/data1.txt', 'w') as f:
+        string1 = "差分分析"
+        print(request.POST)
+        data = request.POST.get('blockcipher')
+        string2 = data
+        with open('./static/InputFile/data.txt', 'w') as f:
            for line in data.splitlines():
-            f.write(line.strip() + '\n')
-        f = open ('./static/InputFile/data1.txt','r')
-        lines = f.readlines()
-        newlines = work2(lines)
-        output = work(lines)
-        #message = "upload successfully!"
-        context = {
-            "v": newlines,
-            "w": output,
-         #   "message": message
-        }
-        return render(request, 'test.html',context)
-    return render(request, 'test.html')
+                f.write(line.strip() + '\n')
+        data = request.POST.get('roundmin')
+        number1 = data
+        with open('./static/InputFile/data.txt', 'a') as f:
+           for line in data.splitlines():
+                f.write(line.strip() + '\n')
+        data = request.POST.get('roundmax')
+        number2 = data
+        with open('./static/InputFile/data.txt', 'a') as f:
+           for line in data.splitlines():
+                f.write(line.strip() + '\n')
+        my_model_instance = MyModel(string1=string1, string2=string2, number1=number1, number2=number2)
+        my_model_instance.save()
+        return render(request, 'test.html', {"name": login_name})  
+    return render(request, 'test.html', {"name": login_name})  
+    
+
+def history(request):
+    return render(request, 'history.html', {'my_model': MyModel.objects.all()})

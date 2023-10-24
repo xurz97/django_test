@@ -1,5 +1,3 @@
-female
-abcd
-efgh
-qwer
-asdf
+des
+1
+10
