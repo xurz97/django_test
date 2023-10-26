@@ -10,27 +10,29 @@
 <nav class="w3-bar w3-black">
   <div class="w3-button w3-bar-item">{{ name }}，你好！</div>
   <div class="w3-button w3-bar-item"><a href = "../logout">登出</a></div>
-  <a href="../test" class="w3-button w3-bar-item">差分分析</a>
-  <a href="../file" class="w3-button w3-bar-item">测试2</a>
+  <a href="../diff" class="w3-button w3-bar-item">差分分析</a>
+  <a href="../linear" class="w3-button w3-bar-item">线性分析</a>
+  <a href="../difflinear" class="w3-button w3-bar-item">差分线性分析</a>
   <a href="../history" class="w3-button w3-bar-item">查询记录</a>
- 
+
 </nav>
 
 <!-- Band Description -->
 <section class="w3-container w3-center w3-content" style="max-width:600px">
-  <h2 class="w3-wide">差分攻击</h2>
+  <h2 class="w3-wide">差分线性分析</h2>
   <p class="w3-opacity"><i>密码学术语</i></p>
-  <p class="w3-justify">差分攻击是通过比较分析有特定区别的明文在通过加密后的变化传播情况来攻击密码算法的。差分攻击是针对对称分组加密算法提出的攻击方法，看起来是最有效的攻击DES的方法（之所以说看起来，是因为差分攻击需要很大的空间复杂度，实际上可能不如野蛮攻击具有可操作性）。2000年以前，差分攻击就被证明对MD5的一次循环是有效的，但对全部4次循环似乎难以奏效。但是随着对MD5研究的进展，情况有了变化。</p>
+  <p class="w3-justify">差分-线性分析是一种经典分析方法，它将差分分析和线性分析结合起来，使用短的高概率差分特征和线性特征来攻击密码算法。</p>
 </section>
-<form method="POST" action="{% url 'test' %}">
+<form method="POST" action="{% url 'difflinear' %}">
   {% csrf_token %}
 <section class="w3-row-padding w3-center w3-light-grey">
   <article class="w3-third">
-    <p>分组算法</p>
+    <p>分组算法
       <select name="blockcipher" id="blockcipher">
         <option value="aes">AES算法</option>
         <option value="des">DES算法</option>
       </select>
+    </p>
   </article>
   <article class="w3-third">
     <p>最小轮数：<input type="text" name="roundmin"></p>

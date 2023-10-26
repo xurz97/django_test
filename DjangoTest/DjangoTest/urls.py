@@ -19,16 +19,13 @@ from demo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('g/', views.g),
+    path('', views.diff),
+    path('diff/', views.diff,name='diff'),
+    path('linear/', views.linear,name='linear'),
+    path('difflinear/', views.difflinear,name='difflinear'),
     path('login/', views.login),
     path('register/', views.register),
     path('logout/', views.logout),
-    path('gohome/', views.gohome),
-    path('upload/', views.upload),
-    path('download/', views.download),
-    #path('file/', views.file),
-    path('file/', views.file, name='file'),
-    path('test/', views.test,name='test'),
     path('history/', views.history,name='history'),
+    path('history/<int:id>/', views.history_detail_view, name='history_detail'),
 ]

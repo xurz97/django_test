@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.w3schools.com/howto/tryhow_website_band.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/css/w3.css">
+<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+</head><body>
+  
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <div class="w3-button w3-bar-item">{{ name }}，你好！</div>
+  <div class="w3-button w3-bar-item"><a href = "../logout">登出</a></div>
+  <a href="../diff" class="w3-button w3-bar-item">差分分析</a>
+  <a href="../linear" class="w3-button w3-bar-item">线性分析</a>
+  <a href="../difflinear" class="w3-button w3-bar-item">差分线性分析</a>
+  <a href="../history" class="w3-button w3-bar-item">查询记录</a>
+
+</nav>
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+  <h2 class="w3-wide">线性分析</h2>
+  <p class="w3-opacity"><i>密码学术语</i></p>
+  <p class="w3-justify">在密码学中，线性密码分析是一种常见的密码分析形式，它基于寻找密码行为的仿射近似。攻击是针对块密码和流密码开发的。线性密码分析是针对分组密码的两种最广泛使用的攻击之一。另一种是差分密码分析。 这一发现归功于 Mitsuru Matsui，他首先将此技术应用于 FEAL 密码（Matsui 和 Yamagishi，1992）。随后，Matsui 发布了针对数据加密标准 (DES) 的攻击，这最终导致了在开放社区中报告的密码的首次实验性密码分析（Matsui，1993 年；1994 年）。对 DES 的攻击通常是不切实际的，需要 247 个已知的明文。已经提出了这种攻击的各种改进，例如使用多重线性近似和结合非线性表示，从而导致广义分裂密码分析。通常期望新的密码设计具有针对线性密码分析的安全性证据。</p>
+</section>
+<form method="POST" action="{% url 'linear' %}">
+  {% csrf_token %}
+<section class="w3-row-padding w3-center w3-light-grey">
+  <article class="w3-third">
+    <p>分组算法
+      <select name="blockcipher" id="blockcipher">
+        <option value="aes">AES算法</option>
+        <option value="des">DES算法</option>
+      </select>
+    </p>
+  </article>
+  <article class="w3-third">
+    <p>最小轮数：<input type="text" name="roundmin"></p>
+  </article>
+  <article class="w3-third">
+    <p>最大轮数：<input type="text" name="roundmax"></p>
+  </article>
+</section>
+
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+  <input type="submit" value="提交">
+</section>
+
+</form>
+<iframe name="postTo" style="display:none"></iframe>
+</section>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  
+  <p class="w3-medium">
+  测试平台
+  </p>
+</footer>
+
+</body></html>
