@@ -57,6 +57,7 @@ from django.shortcuts import render, redirect
 
 from .models import MyModel
 from . import function
+from time import sleep
 def diff(request):
     if request.session.get('id') == None:
         return render(request, 'login.html')
@@ -64,6 +65,7 @@ def diff(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
+        sleep(1)
         string1 = "差分分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')
@@ -74,7 +76,7 @@ def diff(request):
         my_model_instance.save()
         my_model_instance.result = function.differential(string2,number1,number2)
         my_model_instance.save()
-        return render(request, 'diff.html', {"name": login_name})  
+        return render(request, 'diff.html', {"name": login_name, "message":"差分分析完成！"})  
     return render(request, 'diff.html', {"name": login_name})  
     
 def linear(request):
