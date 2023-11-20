@@ -76,7 +76,7 @@ def diff(request):
         my_model_instance.save()
         my_model_instance.result = function.differential(string2,number1,number2)
         my_model_instance.save()
-        return render(request, 'diff.html', {"name": login_name, "message":"差分分析完成！"})  
+        return render(request, 'history.html', {"name": login_name,'my_model': MyModel.objects.all()})
     return render(request, 'diff.html', {"name": login_name})  
     
 def linear(request):
@@ -86,6 +86,7 @@ def linear(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
+        sleep(1)
         string1 = "线性分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')
@@ -94,7 +95,7 @@ def linear(request):
         my_model_instance.save()
         my_model_instance.result = function.linear(string2,number1,number2)
         my_model_instance.save()
-        return render(request, 'linear.html', {"name": login_name})  
+        return render(request, 'history.html', {"name": login_name,'my_model': MyModel.objects.all()})
     return render(request, 'linear.html', {"name": login_name})  
 
 def difflinear(request):
@@ -104,6 +105,7 @@ def difflinear(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
+        sleep(1)
         string1 = "差分线性分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')
@@ -112,7 +114,7 @@ def difflinear(request):
         my_model_instance.save()
         my_model_instance.result = function.difflinear(string2,number1,number2)
         my_model_instance.save()
-        return render(request, 'difflinear.html', {"name": login_name})  
+        return render(request, 'history.html', {"name": login_name,'my_model': MyModel.objects.all()})
     return render(request, 'difflinear.html', {"name": login_name})  
 
 
