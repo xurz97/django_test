@@ -65,7 +65,7 @@ def diff(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
-        sleep(5)
+        sleep(1)
         string1 = "差分分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')
@@ -86,7 +86,7 @@ def linear(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
-        sleep(5)
+        sleep(1)
         string1 = "线性分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')
@@ -105,7 +105,7 @@ def difflinear(request):
     user = models.User.objects.get(id=request.session.get('id'))
     login_name = user.username
     if request.method == 'POST':
-        sleep(5)
+        sleep(1)
         string1 = "差分线性分析"
         string2 = request.POST.get('blockcipher')
         number1 = request.POST.get('roundmin')

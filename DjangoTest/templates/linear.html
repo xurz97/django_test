@@ -8,119 +8,8 @@
   <link rel="stylesheet" href="../static/css/w3.css">
   <link rel="stylesheet" href="../static/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="./../static/css/loader.css">
   <style>
-    #loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            line-height: 100%;
-        }
-
-        #loading img {
-            margin-top: 5%;
-        }
-    .loaderbg {
-      display: none;
-      background-color: #fff;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: fixed;
-      left: 0;
-      top: 0;
-      z-index: 99999999
-    }
-
-    ::-webkit-scrollbar {
-      width: 7.5px;
-      height: 6px;
-      background-color: #f0f0f0;
-      display: none
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #b1b1b1;
-      border-radius: 15px
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #777
-    }
-
-    .spinner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -25px;
-      margin-top: -30px;
-      width: 50px;
-      height: 60px;
-      text-align: center;
-      font-size: 10px
-    }
-
-    .spinner>.double {
-      background: #49a9ee;
-      height: 100%;
-      width: 6px;
-      display: inline-block;
-      -webkit-animation: stretchDelay 1.2s infinite ease-in-out;
-      animation: stretchDelay 1.2s infinite ease-in-out
-    }
-
-    .spinner .rect2 {
-      -webkit-animation-delay: -1.1s;
-      animation-delay: -1.1s
-    }
-
-    .spinner .rect3 {
-      -webkit-animation-delay: -1.0s;
-      animation-delay: -1.0s
-    }
-
-    .spinner .rect4 {
-      -webkit-animation-delay: -0.9s;
-      animation-delay: -0.9s
-    }
-
-    .spinner .rect5 {
-      -webkit-animation-delay: -0.8s;
-      animation-delay: -0.8s
-    }
-
-    @-webkit-keyframes stretchDelay {
-
-      0%,
-      40%,
-      100% {
-        -webkit-transform: scaleY(.4)
-      }
-
-      20% {
-        -webkit-transform: scaleY(1)
-      }
-    }
-
-    @keyframes stretchDelay {
-
-      0%,
-      40%,
-      100% {
-        transform: scaleY(.4);
-        -webkit-transform: scaleY(.4)
-      }
-
-      20% {
-        transform: scaleY(1);
-        -webkit-transform: scaleY(1)
-      }
-    }
-
     html,
     body {
       height: 100%;
@@ -150,6 +39,18 @@
 </head>
 
 <body>
+  <div id="loading" style="display: none;">
+    <div class="swal2-container swal2-center swal2-fade swal2-shown" style="overflow-y: auto;">
+      <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show"
+        tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+        <div class="swal2-header">
+          <div class="swal2-icon swal2-warning swal2-animate-warning-icon" style="display: flex;"><span
+              class="swal2-icon-text">✓</span></div>
+          <h2 class="swal2-title" id="swal2-title" style="display: flex;">提交成功！正在处理，请等待</h2>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="wrapper">
     <!-- Navigation -->
     <nav class="w3-bar w3-black w3-xlarge">
@@ -162,9 +63,6 @@
 
     </nav>
 
-    <div id="loading">
-      <img src="../static/css/loading.gif" alt="loading">
-  </div>
 
     <!-- Band Description -->
     <section class="w3-container w3-center w3-content" style="max-width:1000px">
@@ -223,7 +121,7 @@
       </section>
 
       <section class=" draw-border w3-container w3-center w3-content" style="max-width:600px">
-        <button id="submit" >提交</button>
+        <button id="submit">提交</button>
       </section>
 
 
@@ -237,12 +135,12 @@
     </p>
   </footer>
   <script type="text/javascript">
-   $(function () {
-            $("#submit").click(function () {
-                // 显示加载动画
-                $("#loading").show();
-            });
-        });
+    $(function () {
+      $("#submit").click(function () {
+        // 显示加载动画
+        $("#loading").show();
+      });
+    });
   </script>
 </body>
 
